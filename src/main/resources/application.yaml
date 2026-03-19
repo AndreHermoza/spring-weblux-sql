@@ -1,3 +1,13 @@
+server:
+  port: 8085
+
 spring:
   application:
     name: andre.hermoza
+
+  data:
+    mongodb:
+      database: 12_Andre_Hermoza
+      uri: mongodb+srv://andrehermozagutierrez_db_user:%40Fantasmita200308@java-cluster.fcxkoki.mongodb.net/?appName=java-cluster
+
+
