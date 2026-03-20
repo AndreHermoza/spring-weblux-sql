@@ -2,17 +2,17 @@ package ap1.andre.hermoza.Model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 
 
 @Data
-@Document(collection = "product")
+@Table(name = "products")
 public class Product {
 
     @Id
-    private String id;
+    private Integer product_id;
     private String name;
     private String category;
     private String brand;

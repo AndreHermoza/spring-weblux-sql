@@ -23,7 +23,7 @@ public class ProductService {
        return Prepo.findAll();
     }
 
-    public Mono<Product> findByID(String id) {
+    public Mono<Product> findByID(Integer id) {
         log.info("Buscando por ID");
         return Prepo.findById(id);
     }
@@ -38,7 +38,7 @@ public class ProductService {
         return Prepo.save(product);
     }
 
-    public Mono<Product> setProductStatus(boolean is_active, String id) {
+    public Mono<Product> setProductStatus(boolean is_active, Integer id) {
         log.info("Estado cambiado a: " + is_active);
         return Prepo.findById(id)
                 .flatMap(product -> {

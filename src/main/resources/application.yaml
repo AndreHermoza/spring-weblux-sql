@@ -5,9 +5,8 @@ spring:
   application:
     name: andre.hermoza
 
-  data:
-    mongodb:
-      database: 12_Andre_Hermoza
-      uri: mongodb+srv://andrehermozagutierrez_db_user:%40Fantasmita200308@java-cluster.fcxkoki.mongodb.net/?appName=java-cluster
+  r2dbc:
 
-
+    url: r2dbc:postgresql://ep-bitter-water-an498jl5-pooler.c-6.us-east-1.aws.neon.tech/andre_hermoza_12?sslmode=require
+    username: neondb_owner
+    password: npg_f2F7cmZsOzPt

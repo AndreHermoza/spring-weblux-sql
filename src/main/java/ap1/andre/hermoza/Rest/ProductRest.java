@@ -23,7 +23,7 @@ public class ProductRest {
     }
 
     @GetMapping("/{id}")
-    public Mono<Product> findByID(@PathVariable String id){
+    public Mono<Product> findByID(@PathVariable Integer id){
         return PService.findByID(id);
     }
 
@@ -32,13 +32,14 @@ public class ProductRest {
         return PService.newProduct(product);
     }
 
-    @PutMapping
-    public Mono<Product> updateProduct(@RequestBody Product product) {
+    @PutMapping("/{id}")
+    public Mono<Product> updateProduct(@RequestBody Product product, @PathVariable Integer id) {
+        product.setProduct_id(id);
         return PService.updateProduct(product);
     }
 
     @PatchMapping("/deactivate/{id}")
-    public Mono<Product> deactivateProduct(@PathVariable String id) {
+    public Mono<Product> deactivateProduct(@PathVariable Integer id) {
         return PService.findByID(id)
                 .flatMap(product -> {
                     product.set_active(false);
@@ -48,7 +49,7 @@ public class ProductRest {
     }
 
     @PatchMapping("/activate/{id}")
-    public Mono<Product> activateProduct(@PathVariable String id) {
+    public Mono<Product> activateProduct(@PathVariable Integer id) {
         return PService.findByID(id)
                 .flatMap(product -> {
                     product.set_active(true);
